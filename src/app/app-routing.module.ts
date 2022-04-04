@@ -1,6 +1,7 @@
 import { loadRemoteModule } from '@angular-architects/module-federation';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { mfConfig } from './mfConfig';
 
 const routes: Routes = [
   {
@@ -17,8 +18,8 @@ const routes: Routes = [
     path: 'remote',
     loadChildren: () =>
       loadRemoteModule({
-        exposedModule: './AvaluoModule',
-        remoteEntry: 'http://localhost:4003/remoteEntry.js',
+        exposedModule: mfConfig.avaluosMf.exposedModule,
+        remoteEntry: mfConfig.avaluosMf.remoteEntry,
         type: 'module',
       }).then((m) => m.AvaluoModule),
   },
@@ -30,7 +31,9 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
