@@ -24,6 +24,13 @@
       [props]="somethingComponentInputs"
     ></app-load-remote-component>
   </div>
+  <div class="container something-wrapper">
+    <app-load-remote-component
+      [componentData]="somethingConfigData"
+      [events]="somethingComponentEvents"
+      [props]="somethingComponentInputs2"
+    ></app-load-remote-component>
+  </div>
   <ion-button (click)="redirectToRemotePage()">
     cargar componente remoto
   </ion-button>

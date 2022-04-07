@@ -21,3 +21,7 @@ export declare type IRemoteComponent<Tp = any, Tev = any> = {
 export interface IRemoteComponentReturn {
   instance: Component;
 }
+
+export interface IRemoteComponentInput {
+  token?: string;
+}

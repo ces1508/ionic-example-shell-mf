@@ -6,7 +6,7 @@ import { Component, Injectable, ViewContainerRef } from '@angular/core';
 import {
   IRemoteComponent,
   IRemoteComponentReturn,
-} from '../models/remoteComponent.model';
+} from '@models/remoteComponent.model';
 
 @Injectable({
   providedIn: 'root',

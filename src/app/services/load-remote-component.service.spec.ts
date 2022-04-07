@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LoadRemoteComponentService } from './load-remote-component.service';
+import { LoadRemoteComponentService } from '@services/load-remote-component.service';
 
 describe('LoadRemoteComponentService', () => {
   let service: LoadRemoteComponentService;

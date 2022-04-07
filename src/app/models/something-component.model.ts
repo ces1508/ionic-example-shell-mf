@@ -1,5 +1,10 @@
+import { IRemoteComponentInput } from '@models/remoteComponent.model';
+
 export interface ISomethingComponentInput {
-  data: string;
+  data: {
+    message: string;
+    token: string;
+  } & IRemoteComponentInput;
 }
 
 export type SomethingComponentEventsNames = 'onHandleClick' | 'onHandleClick2';

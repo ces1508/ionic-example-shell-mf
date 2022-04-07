@@ -1,14 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {
-  IEventHandler,
-  IRemoteComponent,
-} from '../models/remoteComponent.model';
+import { IEventHandler, IRemoteComponent } from '@models/remoteComponent.model';
 import {
   ISomethingComponentInput,
   SomethingComponentEventsNames,
-} from '../models/something-component.model';
-import { mfConfig } from '../mfConfig';
+} from '@models/something-component.model';
+import { mfConfig } from '@constants/mfConfig';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -16,19 +13,22 @@ import { mfConfig } from '../mfConfig';
 })
 export class HomePage {
   somethingConfigData: IRemoteComponent = {
-    componentName: 'SomethingComponent',
-    displayName: 'somethingmf',
-    exposedModule: mfConfig.somethingComponent.exposedModule,
+    ...mfConfig.avaluosMf.modules.somethingComponent,
     type: 'component',
-    remoteEntry: mfConfig.somethingComponent.remoteEntry,
   };
 
   somethingComponentInputs: ISomethingComponentInput = {
-    data: 'hola mundo desde shell',
+    data: {
+      message: 'asdasdasd',
+      token: mfConfig.avaluosMf.token,
+    },
   };
 
   somethingComponentInputs2: ISomethingComponentInput = {
-    data: 'hola mundo desde shell para el segundo componente',
+    data: {
+      message: 'mensaje de token valido',
+      token: mfConfig.avaluosMf.token,
+    },
   };
 
   somethingComponentEvents: IEventHandler<SomethingComponentEventsNames>[];

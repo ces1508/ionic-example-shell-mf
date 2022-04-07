@@ -5,8 +5,8 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { IRemoteComponent } from 'src/app/models/remoteComponent.model';
-import { LoadRemoteComponentService } from 'src/app/services/load-remote-component.service';
+import { IRemoteComponent } from '@models/remoteComponent.model';
+import { LoadRemoteComponentService } from '@services/load-remote-component.service';
 
 @Component({
   selector: 'app-load-remote-component',

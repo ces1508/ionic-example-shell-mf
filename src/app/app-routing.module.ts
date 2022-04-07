@@ -1,25 +1,20 @@
 import { loadRemoteModule } from '@angular-architects/module-federation';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { mfConfig } from './mfConfig';
+import { mfConfig } from '@constants/mfConfig';
 
 const routes: Routes = [
   {
     path: 'home',
     loadChildren: () =>
-      import('./home/home.module').then((m) => m.HomePageModule),
-  },
-  {
-    path: 'other',
-    loadChildren: () =>
-      import('./containers/home/home.module').then((m) => m.HomeModule),
+      import('@containers/home/home.module').then((m) => m.HomePageModule),
   },
   {
     path: 'remote',
     loadChildren: () =>
       loadRemoteModule({
-        exposedModule: mfConfig.avaluosMf.exposedModule,
-        remoteEntry: mfConfig.avaluosMf.remoteEntry,
+        exposedModule: mfConfig.avaluosMf.modules.avaluosModule.exposedModule,
+        remoteEntry: mfConfig.avaluosMf.modules.AvaluoModule.remoteEntry,
         type: 'module',
       }).then((m) => m.AvaluoModule),
   },
