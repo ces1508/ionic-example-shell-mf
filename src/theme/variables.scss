@@ -5,7 +5,7 @@
 :root {
   --ion-background-color: #fff;
   --ion-text-color: #000;
-  --ion-toolbar-color: #fff;
+  --ion-toolbar-color: #000;
 
   /** primary **/
   --ion-color-primary: #3880ff;
@@ -78,6 +78,8 @@
   --ion-color-light-contrast-rgb: 0, 0, 0;
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
+
+  --card-shadow: 0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 3px 1px -2px rgb(0 0 0 / 12%), 0px 1px 5px 0px rgb(0 0 0 / 20%);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -85,8 +87,12 @@
    * Dark Colors
    * -------------------------------------------
    */
+  //  :root {
+    //  }
 
-  body {
+    body {
+    --ion-toolbar-color: #fff;
+    --ion-text-color: #ffffff;
     --ion-color-primary: #428cff;
     --ion-color-primary-rgb: 66,140,255;
     --ion-color-primary-contrast: #ffffff;
@@ -149,6 +155,9 @@
     --ion-color-light-contrast-rgb: 255,255,255;
     --ion-color-light-shade: #1e2023;
     --ion-color-light-tint: #383a3e;
+
+
+    --card-shadow: 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 2px 1px -1px rgb(0 0 0 / 12%), 0px 1px 3px 0px rgb(0 0 0 / 20%);
   }
 
   /*
@@ -157,11 +166,11 @@
    */
 
   .ios body {
-    // --ion-background-color: #000000;
-    // --ion-background-color-rgb: 0,0,0;
+    --ion-background-color: #000000;
+    --ion-background-color-rgb: 0,0,0;
 
-    // --ion-text-color: #ffffff;
-    // --ion-text-color-rgb: 255,255,255;
+    --ion-text-color: #ffffff;
+    --ion-text-color-rgb: 255,255,255;
 
     --ion-color-step-50: #0d0d0d;
     --ion-color-step-100: #1a1a1a;
@@ -186,6 +195,7 @@
     --ion-item-background: #000000;
 
     --ion-card-background: #1c1c1d;
+    --card-shadow: 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 2px 1px -1px rgb(0 0 0 / 12%), 0px 1px 3px 0px rgb(0 0 0 / 20%);
   }
 
   .ios ion-modal {
@@ -201,11 +211,11 @@
    */
 
   .md body {
-    // --ion-background-color: #121212;
+    --ion-background-color: #121212;
     --ion-background-color-rgb: 18,18,18;
 
-    // --ion-text-color: #ffffff;
-    // --ion-text-color-rgb: 255,255,255;
+    --ion-text-color: #ffffff;
+    --ion-text-color-rgb: 255,255,255;
 
     --ion-border-color: #222222;
 
@@ -236,5 +246,7 @@
     --ion-tab-bar-background: #1f1f1f;
 
     --ion-card-background: #1e1e1e;
+    --card-shadow: 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 2px 1px -1px rgb(0 0 0 / 12%), 0px 1px 3px 0px rgb(0 0 0 / 20%);
+
   }
 }

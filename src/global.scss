@@ -28,3 +28,45 @@
 .ion-page {
   justify-content: flex-start;
 }
+.content-pages {
+  .ion-page {
+    overflow: auto;
+  }
+}
+.p-paginator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px 0;
+}
+
+.p-paginator .p-paginator-first {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+.p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, .p-paginator .p-paginator-next, .p-paginator .p-paginator-last, .p-paginator .p-paginator-pages .p-paginator-page  {
+  --paginatorButtonSize: 1.5rem;
+  background-color: transparent;
+  border: 0 none;
+  color: #6c757d;
+  min-width: var(--paginatorButtonSize);
+  height: var(--paginatorButtonSize);
+  margin: 0.143rem;
+  transition: box-shadow .2s;
+  border-radius: 50%;
+}
+.p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+  background: #EFF6FF;
+  border-color: #eff6ff;
+  color: #1d4ed8;
+}
+.p-button {
+ padding: 10px;
+ min-width: 100px;
+ min-height: 40px;
+}
+.button-block {
+  margin: auto;
+  display: block;
+}

@@ -1,10 +1,34 @@
 <ion-app>
+  <ion-menu side="start" menuId="first" contentId="main">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item
+          *ngFor="let menuItem of menuElements"
+          (click)="goToLink(menuItem)"
+          >{{ menuItem.label }}</ion-item
+        >
+      </ion-list>
+    </ion-content>
+  </ion-menu>
   <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title> Blank </ion-title>
+      <ion-buttons slot="start">
+        <ion-menu-button
+          [autoHide]="false"
+          (click)="toogleMenu()"
+        ></ion-menu-button>
+      </ion-buttons>
+      <ion-title> Ejemplo MicroFrontends </ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
-    <ion-router-outlet></ion-router-outlet>
+    <div class="content-pages">
+      <ion-router-outlet id="main"></ion-router-outlet>
+    </div>
   </ion-content>
 </ion-app>

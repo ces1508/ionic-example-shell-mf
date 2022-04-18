@@ -1,37 +1,19 @@
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank {{counter2}}</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>
-      Start with Ionic {{counter}}
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://ionicframework.com/docs/components"
-        >UI Components</a
-      >
-    </p>
+<div>
+  <app-search-bar
+    placeholder="rick"
+    (search)="handleSearch($event)"
+  ></app-search-bar>
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error">Error :(</div>
+  <div *ngIf="characters" class="characters-list">
+    <ion-list>
+      <ion-item *ngFor="let character of characters;trackBy: trackCard">
+        <app-load-remote-component
+          [props]="character"
+          [componentData]="cardComponentConfig"
+        >
+        </app-load-remote-component>
+      </ion-item>
+    </ion-list>
   </div>
-  <div class="container">
-    <app-load-remote-component
-      [componentData]="somethingConfigData"
-      [events]="somethingComponentEvents"
-      [props]="somethingComponentInputs"
-    ></app-load-remote-component>
-  </div>
-  <div class="container something-wrapper">
-    <app-load-remote-component
-      [componentData]="somethingConfigData"
-      [events]="somethingComponentEvents"
-      [props]="somethingComponentInputs2"
-    ></app-load-remote-component>
-  </div>
-  <ion-button (click)="redirectToRemotePage()">
-    cargar componente remoto
-  </ion-button>
-</ion-content>
+</div>

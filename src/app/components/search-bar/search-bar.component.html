@@ -1,0 +1,11 @@
+<form (submit)="handleInput()">
+  <ion-searchbar
+    [placeholder]="placeholder"
+    animated
+    enterkeyhint="searcgh"
+    showClearButton
+    type="ios"
+    name="searcher"
+    [(ngModel)]="query"
+  ></ion-searchbar>
+</form>

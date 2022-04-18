@@ -2,6 +2,8 @@ import {
   AfterViewInit,
   Component,
   Input,
+  OnChanges,
+  SimpleChanges,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
@@ -13,7 +15,7 @@ import { LoadRemoteComponentService } from '@services/load-remote-component.serv
   templateUrl: './load-remote-component.component.html',
   styleUrls: ['./load-remote-component.component.scss'],
 })
-export class LoadRemoteComponentComponent implements AfterViewInit {
+export class LoadRemoteComponentComponent implements AfterViewInit, OnChanges {
   @ViewChild('loadMfComponent', { read: ViewContainerRef, static: true })
   container: ViewContainerRef;
   @Input() props: any = {};
@@ -21,12 +23,27 @@ export class LoadRemoteComponentComponent implements AfterViewInit {
   @Input() componentData: IRemoteComponent;
   constructor(private loadRemote: LoadRemoteComponentService) {}
 
-  async ngAfterViewInit() {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (
+      changes.props.previousValue !== changes.props.currentValue &&
+      !changes.props.firstChange
+    ) {
+      this.loadComponent();
+    }
+  }
+
+  ngAfterViewInit() {
+    this.loadComponent();
+  }
+
+  private async loadComponent() {
     const { props, events } = this;
+
     const config = {
       ...this.componentData,
       config: { props, events },
     };
+
     await this.loadRemote.loadComponent<any, any>(this.container, config);
   }
 }

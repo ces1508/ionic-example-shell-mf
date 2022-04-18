@@ -32,9 +32,9 @@
               }
             ],
             "styles": [
+              "src/global.scss",
               "src/theme/variables.scss",
-              "src/assets/stylesheet/index.scss",
-              "src/global.scss"
+              "src/assets/stylesheet/index.scss"
             ],
             "scripts": [],
             "aot": false,

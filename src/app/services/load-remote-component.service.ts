@@ -47,6 +47,7 @@ export class LoadRemoteComponentService {
         .instance as any;
 
       const { props, events } = data.config;
+
       if (props) {
         for (const prop in props) {
           if (Object.prototype.hasOwnProperty.call(props, prop)) {

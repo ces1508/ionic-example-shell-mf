@@ -14,9 +14,33 @@ const routes: Routes = [
     loadChildren: () =>
       loadRemoteModule({
         exposedModule: mfConfig.avaluosMf.modules.avaluosModule.exposedModule,
-        remoteEntry: mfConfig.avaluosMf.modules.AvaluoModule.remoteEntry,
+        remoteEntry: mfConfig.avaluosMf.modules.avaluosModule.remoteEntry,
         type: 'module',
       }).then((m) => m.AvaluoModule),
+  },
+  {
+    path: 'characters',
+    loadChildren: () =>
+      loadRemoteModule({
+        exposedModule:
+          mfConfig.avaluosMf.modules.charactersModule.exposedModule,
+        remoteEntry: mfConfig.avaluosMf.modules.charactersModule.remoteEntry,
+        type: 'module',
+      }).then((m) => m.CharactersModule),
+  },
+  {
+    path: 'something',
+    loadChildren: () =>
+      import('./containers/something/something.module').then(
+        (m) => m.SomethingModule
+      ),
+  },
+  {
+    path: 'something-no-secure',
+    loadChildren: () =>
+      import(
+        './containers/something-no-secure/something-no-secure.module'
+      ).then((m) => m.SomethingNoSecureModule),
   },
   {
     path: '',
