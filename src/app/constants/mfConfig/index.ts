@@ -21,7 +21,7 @@ export const mfConfig: ImfConfig = {
       },
       somethingComponent: {
         componentName: 'SomethingComponent',
-        displayName: 'somethingmf',
+        displayName: 'app-something',
         exposedModule: './SomethingComponent',
         remoteEntry: environment.avaluosMf,
         type: 'component',
